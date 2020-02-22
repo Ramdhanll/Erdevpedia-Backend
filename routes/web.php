@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', 'DashboardController@index');
+Route::get('/', 'DashboardController@index')->name('home');
 
 Auth::routes(['register' => false]);
+
+Route::resources([
+  'products' => 'ProductController'
+]);
