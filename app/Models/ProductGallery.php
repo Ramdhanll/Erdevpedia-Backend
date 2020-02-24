@@ -10,7 +10,7 @@ class ProductGallery extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'prducts_id','photo','is_default'
+        'product_id','photo','is_default'
     ];
 
     protected $hidden = [
@@ -18,12 +18,19 @@ class ProductGallery extends Model
     ];
 
     public function product() {
-        return $this->belongsTo(Product::class,'products_id','id'); // ProductGallery kepunyaan Product::class | parameter(kelas,fieldYangBerelasinya,FieldSumberRelasinya)
+        return $this->belongsTo(Product::class,'product_id','id'); // ProductGallery kepunyaan Product::class | parameter(kelas,fieldYangBerelasinya,FieldSumberRelasinya)
+        // return $this->belongsTo(Product::class); // Cara ini juga bisa
     }
 
     // ACCESSORS
+    /**
+     * Accesors merupakan sebuah fungsi
+     * yang mengeluarkan output yang kita inginkan
+     * misalkan contoh dibawah, ketika mau mengeluarkan photo
+     * otomatis akan ditambahkan 'storage/value'
+     */
     public function getPhotoAttribute($value) {
-        return url('storage/' . $value);
+        return url('storage/' . $value); 
     }
 
     /**
