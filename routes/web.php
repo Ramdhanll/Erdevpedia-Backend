@@ -20,6 +20,7 @@ Route::get('products/{id}/gallery','ProductController@gallery')
       
 Route::resources([
   'products'          => 'ProductController',
-  'product-galleries' => 'ProductGalleryController'
+  'product-galleries' => 'ProductGalleryController',
+  'transactions' => 'TransactionController'
 ]);
 // Product
