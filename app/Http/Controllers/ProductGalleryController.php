@@ -28,7 +28,7 @@ class ProductGalleryController extends Controller
     {
         $items = ProductGallery::with([
             'product'
-        ])->get();
+        ])->orderBy('id','asc')->get();
 
         return view('pages.product-galleries.index')->with([
             'items' => $items

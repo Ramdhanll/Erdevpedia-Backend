@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ProductGallery;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Str; // fungsi helper yang dibawa oleh laravel, untuk membuat slug
 class ProductController extends Controller
@@ -110,5 +111,17 @@ class ProductController extends Controller
         $item = Product::findOrFail($id);
         $item->delete();
         return redirect()->route('products.index');
+    }
+
+    public function gallery(Request $request, $id){
+      $product = Product::findOrFail($id);
+      $items = ProductGallery::with('product')
+        ->where('product_id',$id)
+        ->get();
+
+        return view('pages.products.gallery')->with([
+          'product' => $product,
+          'items' => $items,
+        ]);
     }
 }
