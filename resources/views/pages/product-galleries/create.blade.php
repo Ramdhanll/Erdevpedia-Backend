@@ -30,23 +30,21 @@
                     accept="image/*">
             @error('photo') <div class="text-muted"> {{ $message }} </div> @enderror
           </div>
-          <div class="form-group">
-            <label for="is_default" class="form-control-label">Jadikan Default</label>
-            <br>
-            <label>
+          <div class="form-check">
+            <label class="form-check-label mr-4">
               <input type="radio" 
-                    name="is_default" 
-                    class="form-control @error('is_default') is-invalid @enderror" 
-                    value="1"> Ya
+                      class="form-check-input @error('is_default') is-invalid @enderror"
+                      name="is_default" 
+                      value="1">Ya
             </label>
-              &nbsp;
-            <label>
+            <label class="form-check-label">
               <input type="radio" 
-                    name="is_default" 
-                    class="form-control @error('is_default') is-invalid @enderror" 
-                    value="0"> Tidak
+                      class="form-check-input @error('is_default') is-invalid @enderror"
+                      name="is_default" 
+                      value="0">Tidak
             </label>
             @error('is_default') <div class="text-muted"> {{ $message }} </div> @enderror
+
           </div>
           <div class="form-group">
             <button class="btn btn-primary btn-block" type="submit">

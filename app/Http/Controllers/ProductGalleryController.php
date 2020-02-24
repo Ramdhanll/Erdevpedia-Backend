@@ -56,6 +56,7 @@ class ProductGalleryController extends Controller
      */
     public function store(ProductGalleryRequest $request)
     {
+        // dd($request);
         $data = $request->all();
         $data['photo'] = $request->file('photo')->store(
             'assets/product', 'public' // akan disampan di assets/product dan ditaro didalam public
@@ -107,6 +108,8 @@ class ProductGalleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Product::findOrFail($id);
+        $item->delete();
+        return redirect()->route('product-galleries.index');
     }
 }
