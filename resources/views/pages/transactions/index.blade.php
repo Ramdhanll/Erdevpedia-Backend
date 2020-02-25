@@ -34,11 +34,11 @@
                       <td>$ {{ $item->transaction_total }}</td>
                       <td>
                         @if ($item->transaction_status == 'PENDING')
-                          <span class="badge-info">
+                          <span class="badge-info p-1">
                         @elseif($item->transaction_status == 'SUCCESS')
-                          <span class="badge-success">
+                          <span class="badge-success p-1">
                         @elseif($item->transaction_status == 'FAILED')
-                          <span class="badge-danger">
+                          <span class="badge-warning p-1">
                         @else
                             <span>
                         @endif
@@ -47,15 +47,15 @@
                       </td>
                       <td>
                         @if ($item->transaction_status == 'PENDING')
-                          {{-- <a href="{{ route('transactions_status', $item->id) }} ? status=SUCCESS" 
+                          <a href="{{ route('transactions.status', $item->id) }}?status=SUCCESS" 
                             class="btn btn-sm btn-success">
                           <i class="fa fa-check" aria-hidden="true"></i>
                           </a>
 
-                          <a href="{{ route('transactions_status', $item->id) }} ? status=FAILED" 
-                            class="btn btn-sm btn-warning">
+                          <a href="{{ route('transactions.status', $item->id) }}?status=FAILED" 
+                            class="btn btn-sm btn-danger">
                           <i class="fa fa-times" aria-hidden="true"></i>
-                          </a> --}}
+                          </a>
                         @endif
                         <a href="#mymodal" 
                             data-remote="{{ route('transactions.show', $item->id) }}"
