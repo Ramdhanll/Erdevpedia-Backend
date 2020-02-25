@@ -77,7 +77,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $item = Product::findOrFail($id);
-        return view('pages.products.editor')->with([
+        return view('pages.products.edit')->with([
             'item'  => $item
         ]);
     }

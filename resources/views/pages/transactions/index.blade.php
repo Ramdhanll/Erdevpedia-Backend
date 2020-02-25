@@ -28,7 +28,7 @@
                     @forelse ($items as $item)
                     <tr>
                       <td>{{ $item->id }}</td>
-                      <td>{{ $item->nama }}</td>
+                      <td>{{ $item->name }}</td>
                       <td>{{ $item->email }}</td>
                       <td>{{ $item->number }}</td>
                       <td>$ {{ $item->transaction_total }}</td>
@@ -81,7 +81,7 @@
                     </tr>
                     @empty
                         <tr>
-                          <td colspan="6" class="text-center p-5">Data Tidak Tersedia</td>
+                          <td colspan="7" class="text-center p-5">Data Tidak Tersedia</td>
                         </tr>
                     @endforelse
                   </tbody>

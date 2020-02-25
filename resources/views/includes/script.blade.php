@@ -1,5 +1,5 @@
 <!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
@@ -130,19 +130,19 @@
         // Traffic Chart using chartist
         if ($('#traffic-chart').length) {
             var chart = new Chartist.Line('#traffic-chart', {
-              labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-              series: [
-              [0, 18000, 35000,  25000,  22000,  0],
-              [0, 33000, 15000,  20000,  15000,  300],
-              [0, 15000, 28000,  15000,  30000,  5000]
-              ]
-          }, {
-              low: 0,
-              showArea: true,
-              showLine: false,
-              showPoint: false,
-              fullWidth: true,
-              axisX: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                series: [
+                [0, 18000, 35000,  25000,  22000,  0],
+                [0, 33000, 15000,  20000,  15000,  300],
+                [0, 15000, 28000,  15000,  30000,  5000]
+                ]
+            }, {
+                low: 0,
+                showArea: true,
+                showLine: false,
+                showPoint: false,
+                fullWidth: true,
+                axisX: {
                 showGrid: true
             }
         });
@@ -227,3 +227,33 @@
         // Bar Chart #flotBarChart End
     });
 </script>
+
+<script>
+    jQuery(document).ready(function ($) {
+        $('#mymodal').on('show.bs.modal', function(e){
+            let button = $(e.relatedTarget);
+            let modal = $(this);
+            modal.find('.modal-body').load(button.data('remote'));
+            modal.find('.modal-title').html(button.data('title'));
+
+        })
+    });
+</script>
+
+<div class="modal" id="mymodal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title"></h5>
+            </div>
+            <div class="modal-body">
+                <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
