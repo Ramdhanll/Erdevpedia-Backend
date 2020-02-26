@@ -29,9 +29,10 @@ class CheckoutRequest extends FormRequest
             'number'               => 'required|max:255',
             'address'              => 'required',
             'transaction_total'    => 'required|integer',
-            'transaction_status'   => 'nullabel|string|in:PENDING,SUCCESS,FAILED',
-            'transaction_detail'   => 'required|array',
-            'transaction_detail.*' => 'integer|exists:products,id',
+            'transaction_status'   => 'nullable|string|in:PENDING,SUCCESS,FAILED',
+            'transaction_details'   => 'required|array',
+            'transaction_details.*' => 'integer|exists:products,id',
+
         ];
     }
 }
